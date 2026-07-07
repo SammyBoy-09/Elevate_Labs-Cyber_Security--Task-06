@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Strength Evaluation Report</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f4f7f6;
+      }
+      .container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      h1,
+      h2,
+      h3 {
+        color: #2c3e50;
+      }
+      h1 {
+        border-bottom: 3px solid #f39c12;
+        padding-bottom: 10px;
+      }
+      h2 {
+        border-bottom: 1px solid #bdc3c7;
+        margin-top: 30px;
+        padding-bottom: 5px;
+      }
+
+      .password-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        padding: 15px;
+        margin-bottom: 20px;
+        background-color: #fafafa;
+      }
+      .weak {
+        border-left: 5px solid #e74c3c;
+      }
+      .medium {
+        border-left: 5px solid #f39c12;
+      }
+      .strong {
+        border-left: 5px solid #2ecc71;
+      }
+
+      .pwd-title {
+        margin-top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .badge {
+        padding: 4px 8px;
+        border-radius: 4px;
+        color: white;
+        font-size: 0.9em;
+        font-weight: bold;
+      }
+      .badge-weak {
+        background-color: #e74c3c;
+      }
+      .badge-medium {
+        background-color: #f39c12;
+      }
+      .badge-strong {
+        background-color: #2ecc71;
+      }
+
+      .code-block {
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-family: Consolas, monospace;
+        font-size: 16px;
+        margin: 10px 0;
+        letter-spacing: 2px;
+      }
+      .screenshot-placeholder {
+        background-color: #fdfbf7;
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: center;
+        margin: 15px 0;
+        border-radius: 5px;
+      }
+      .screenshot-img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        display: block;
+        margin: 0 auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 style="text-align: center">Task - 06</h1>
+      <h1 style="text-align: center">Password Strength Evaluation Report</h1>
+      <p>
+        <strong>Objective:</strong> Evaluate varying password complexities and
+        establish best practices for secure authentication.
+      </p>
+
+      <h2>Password Analysis</h2>
+      <p>
+        The following passwords were evaluated based on length, complexity
+        (character sets used), and predictability (resistance to dictionary
+        attacks).
+      </p>
+
+      <div class="password-card weak">
+        <h3 class="pwd-title">
+          Sample 1: Short & Predictable
+          <span class="badge badge-weak">Very Weak</span>
+        </h3>
+        <div class="code-block">summer2024</div>
+        <p>
+          <strong>Analysis:</strong> This password is highly vulnerable. It uses
+          a common dictionary word ("summer") followed by a predictable year. It
+          lacks uppercase letters and special symbols.
+        </p>
+        <p>
+          <strong>Attack Vector:</strong> Easily defeated by a basic dictionary
+          attack or a hybrid attack within seconds.
+        </p>
+        <div class="screenshot-placeholder">
+          <img
+            class="screenshot-img"
+            src="./images/brave_Vjt4fEH1E5.png"
+            alt="Password checker showing summer2024 is very weak"
+          />
+          <p>
+            <em
+              >Figure 1: Password checker indicating "summer2024" can be cracked
+              in roughly 25 seconds.</em
+            >
+          </p>
+        </div>
+      </div>
+
+      <div class="password-card medium">
+        <h3 class="pwd-title">
+          Sample 2: Complex but Predictable
+          <span class="badge badge-medium">Medium</span>
+        </h3>
+        <div class="code-block">T3chn0l0gy#89</div>
+        <p>
+          <strong>Analysis:</strong> This password is 13 characters long and
+          includes all four character sets. However, it relies heavily on
+          standard "leet speak" substitutions for a single dictionary word,
+          which modern cracking tools automatically check.
+        </p>
+        <p>
+          <strong>Attack Vector:</strong> Will defeat basic online brute-forcing
+          but remains vulnerable to advanced offline dictionary attacks using
+          rulesets.
+        </p>
+        <div class="screenshot-placeholder">
+          <img
+            class="screenshot-img"
+            src="./images/brave_XDXLDaT8f7.png"
+            alt="Password checker showing P@ssw0rd1 is weak"
+          />
+          <p>
+            <em
+              >Figure 2: Example of how common substitutions (like P@ssw0rd1)
+              are instantly recognized by checkers and cracking tools, resulting
+              in a crack time of 0 seconds.</em
+            >
+          </p>
+        </div>
+      </div>
+
+      <div class="password-card strong">
+        <h3 class="pwd-title">
+          Sample 3: Length & Complexity (Passphrase)
+          <span class="badge badge-strong">Very Strong</span>
+        </h3>
+        <div class="code-block">Blue^Guitar#Running$Quickly99!</div>
+        <p>
+          <strong>Analysis:</strong> This is a "passphrase" containing 30
+          characters, utilizing all four character sets randomly distributed.
+          Length is the most critical factor in password entropy.
+        </p>
+        <p>
+          <strong>Attack Vector:</strong> Highly resistant to both dictionary
+          and brute-force attacks. The sheer length makes the computational time
+          required to guess it astronomical.
+        </p>
+        <div class="screenshot-placeholder">
+          <img
+            class="screenshot-img"
+            src="./images/brave_HH6jCLNCte.png"
+            alt="Password checker showing long passphrase is very strong"
+          />
+          <p>
+            <em
+              >Figure 3: Password checker indicating the long passphrase would
+              take an estimated 8 billion years to crack.</em
+            >
+          </p>
+        </div>
+      </div>
+
+      <h2>Best Practices & Takeaways</h2>
+      <ul>
+        <li>
+          <strong>Length is Paramount:</strong> A 16-character password with
+          just lowercase letters is often stronger than an 8-character password
+          with high complexity. Aim for 14+ characters or use passphrases.
+        </li>
+        <li>
+          <strong>Avoid Predictability:</strong> Never use personal information
+          (names, birthdates), sequential characters ("123456", "qwerty"), or
+          common words. Avoid simple "leet speak" substitutions.
+        </li>
+        <li>
+          <strong>Use Password Managers:</strong> Utilize tools like Bitwarden
+          or 1Password to generate, store, and auto-fill complex, unique
+          passwords for every account.
+        </li>
+        <li>
+          <strong>Enable MFA:</strong> A strong password is only one layer of
+          defense. Multi-Factor Authentication (MFA) is essential to protect
+          accounts even if the password is compromised.
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
